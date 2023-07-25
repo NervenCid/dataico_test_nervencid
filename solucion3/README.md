@@ -1,44 +1,57 @@
 # solucion3
 
-FIXME: description
+## Problem 3: Test Driven Development
+Given the function **subtotal** defined in **invoice-item.clj** in this repo, write at least five tests using clojure core **deftest** that demonstrates its correctness. This subtotal function calculates the subtotal of an invoice-item taking a discount-rate into account. Make sure the tests cover as many edge cases as you can!
 
-## Installation
+#### Execute the code 
 
-Download from http://example.com/FIXME.
+In order to run this project execute with cmd:
 
-## Usage
+```console
+lein test
+```
 
-FIXME: explanation
+#### Result
 
-    $ java -jar solucion3-0.1.0-standalone.jar [args]
+I proposed these test cases:
 
-## Options
+1. A simple full input case
 
-FIXME: listing of options this app accepts.
+    ```console
+    {:precise-quantity 1 :precise-price 10 :discount-rate 50}
+    ```
 
-## Examples
+2. A case where "discount-rate" is 0 explicitly
 
-...
+    ```console
+    {:precise-quantity 20 :precise-price 10 :discount-rate 0}
+    ```
 
-### Bugs
+3. A case where "discount-rate" is above of 100
 
-...
+    ```console
+    {:precise-quantity 30 :precise-price 10 :discount-rate 200}
+    ```
 
-### Any Other Sections
-### That You Think
-### Might be Useful
+4. A case where "discount-rate" is not provided
 
-## License
+    ```console
+    {:precise-quantity 5 :precise-price 20}
+    ```
 
-Copyright © 2023 FIXME
+5. A case where the result must be 0
 
-This program and the accompanying materials are made available under the
-terms of the Eclipse Public License 2.0 which is available at
-http://www.eclipse.org/legal/epl-2.0.
+    ```console
+    {:precise-quantity 0 :precise-price 10}
+    ```
 
-This Source Code may also be made available under the following Secondary
-Licenses when the conditions for such availability set forth in the Eclipse
-Public License, v. 2.0 are satisfied: GNU General Public License as published by
-the Free Software Foundation, either version 2 of the License, or (at your
-option) any later version, with the GNU Classpath Exception which is available
-at https://www.gnu.org/software/classpath/license.html.
+Executing the code this is the output
+
+```console
+lein test solucion3.core-test
+
+Ran 5 tests containing 5 assertions.
+0 failures, 0 errors.
+```
+
+This satisfy all the tests cases.
