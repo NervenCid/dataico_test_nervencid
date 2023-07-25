@@ -17,3 +17,5 @@ The "solucion3" is a test you must run with:
 ```console
 lein test
 ```
+
+Inside each folder are other "README" files in order to explain the results.

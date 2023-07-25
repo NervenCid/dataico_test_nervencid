@@ -1,44 +1,46 @@
 # solucion1
 
-FIXME: description
+### Problem 1 Thread-last Operator ->>
+Given the invoice defined in **invoice.edn** in this repo, use the thread-last ->> operator to find all invoice items that satisfy the given conditions. Please write a function that receives an invoice as an argument and returns all items that satisfy the conditions described below.
+#### Requirements
+- Load invoice to play around with the function like this:
 
-## Installation
+```
+(def invoice (clojure.edn/read-string (slurp "invoice.edn")))
+```
 
-Download from http://example.com/FIXME.
+#### Definitions
+- An invoice item is a clojure map { … } which has an :invoice-item/id field. EG.
 
-## Usage
+```
+{:invoice-item/id     "ii2"  
+  :invoice-item/sku "SKU 2"}
+```
 
-FIXME: explanation
+- An invoice has two fields :invoice/id (its identifier) and :invoice/items a vector of invoice items
 
-    $ java -jar solucion1-0.1.0-standalone.jar [args]
+#### Invoice Item Conditions
+- At least have one item that has :iva 19%
+- At least one item has retention :ret\_fuente 1%
+- Every item must satisfy EXACTLY one of the above two conditions. This means that an item cannot have BOTH :iva 19% and retention :ret\_fuente 1%.
 
-## Options
+#### Execute the code 
 
-FIXME: listing of options this app accepts.
+In order to run this project execute with cmd:
 
-## Examples
+```console
+lein run
+```
 
-...
+#### Result
 
-### Bugs
+Executing the code this is the output
 
-...
+```console
+No retentions
+RESULT:  {:invoice-item/id ii3, :invoice-item/sku SKU 3, :taxable/taxes [#:tax{:id t3, :category :iva, :rate 19}]}
+No Tax
+RESULT:  {:invoice-item/id ii4, :invoice-item/sku SKU 3, :retentionable/retentions [#:retention{:id r2, :category :ret_fuente, :rate 1}]}
+```
 
-### Any Other Sections
-### That You Think
-### Might be Useful
-
-## License
-
-Copyright © 2023 FIXME
-
-This program and the accompanying materials are made available under the
-terms of the Eclipse Public License 2.0 which is available at
-http://www.eclipse.org/legal/epl-2.0.
-
-This Source Code may also be made available under the following Secondary
-Licenses when the conditions for such availability set forth in the Eclipse
-Public License, v. 2.0 are satisfied: GNU General Public License as published by
-the Free Software Foundation, either version 2 of the License, or (at your
-option) any later version, with the GNU Classpath Exception which is available
-at https://www.gnu.org/software/classpath/license.html.
+This satisfy all the conditions according to the file "invoice.edn" provided.
