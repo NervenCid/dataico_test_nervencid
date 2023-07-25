@@ -1,44 +1,22 @@
 # solucion2
 
-FIXME: description
+## Problem 2: Core Generating Functions
+  Given the invoice defined in **invoice.json** found in this repo, generate an invoice that passes the spec **::invoice** defined in **invoice-spec.clj**. Write a function that as an argument receives a file name (a JSON file name in this case) and returns a clojure map such that
 
-## Installation
+```
+(s/valid? ::invoice invoice) => true 
+```
 
-Download from http://example.com/FIXME.
+where invoice represents an invoice constructed from the JSON.
 
-## Usage
+#### Execute the code 
 
-FIXME: explanation
+In order to run this project execute with cmd:
 
-    $ java -jar solucion2-0.1.0-standalone.jar [args]
+```console
+lein run
+```
 
-## Options
+#### Result
 
-FIXME: listing of options this app accepts.
-
-## Examples
-
-...
-
-### Bugs
-
-...
-
-### Any Other Sections
-### That You Think
-### Might be Useful
-
-## License
-
-Copyright © 2023 FIXME
-
-This program and the accompanying materials are made available under the
-terms of the Eclipse Public License 2.0 which is available at
-http://www.eclipse.org/legal/epl-2.0.
-
-This Source Code may also be made available under the following Secondary
-Licenses when the conditions for such availability set forth in the Eclipse
-Public License, v. 2.0 are satisfied: GNU General Public License as published by
-the Free Software Foundation, either version 2 of the License, or (at your
-option) any later version, with the GNU Classpath Exception which is available
-at https://www.gnu.org/software/classpath/license.html.
+Executing the code the JSON file provided does not meet the spec due to the field ":invoice/items".
